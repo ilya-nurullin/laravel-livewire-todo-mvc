@@ -6,12 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible"
           content="ie=edge">
-    <title>Todo app</title>
-    @vite('resources/css/todo.css')
+    <title>Document</title>
 </head>
 <body>
-<livewire:todo-app />
-
-@livewireScripts
+<ul>
+@foreach($users as $user)
+    <li>
+        <a href="{{ route('auth', ['userId' => $user->id]) }}">
+            #{{ $user->id  }} {{ $user->name }}
+        </a>
+    </li>
+@endforeach
+</ul>
 </body>
 </html>
